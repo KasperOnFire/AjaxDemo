@@ -5,14 +5,18 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <h4 id="joke">Hello World!</h4>
+        <p id ="id"></p>
+        <p id ="ref"></p>
     </body>
     <script>
         var promise = fetch('https://jokes-plaul.rhcloud.com/api/joke');
         promise.then(function (response) {
             return response.json();
         }).then(function (quote) {
-            alert(quote.joke);
+            document.getElementById("joke").innerHTML = quote.joke;
+            document.getElementById("id").innerHTML = quote.id;
+            document.getElementById("ref").innerHTML = quote.reference;
         });
     </script>
 
